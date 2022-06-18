@@ -19,7 +19,10 @@ class Player:
         self.name = name
         self.hand = []
         self.currentcoin = 0
-
+        
+    def name(self):
+        return self.name
+    
     def draw(self, num):
         for i in range(num):
             self.hand.append(Deck.pop(random.randrange(1,len(Deck)+1)))
@@ -43,6 +46,9 @@ def settingDeck():
 def main():
     Playerlist = []
     settingDeck()
-    numofPlayer = int(input('Number of Player: '))
-    for i in numofPlayer: # + name setting plz
-        name = input()
+    numofnotPlayer = int(input('Number of computer: '))
+    for i in range(numofnotPlayer): # + name setting plz
+        Playerlist.append(Player('Player'+str(i)).name)
+    NameofPlayer = input('your Name: ')
+    
+   
