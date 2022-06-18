@@ -15,7 +15,23 @@ class Cards:
         return self.shape + ' ' + self.rank
 
 class Player:
-    hand = []
+    def __init__(self, name):
+        self.name = name
+        self.hand = []
+        self.currentcoin = 0
+
+    def draw(self, num):
+        for i in range(num):
+            self.hand.append(Deck.pop(random.randrange(1,len(Deck)+1)))
+    
+    def coin(self, coin):
+        self.currentcoin += coin
+
+    def hand(self):
+        return self.hand
+
+def settingDeck():
+    global Deck
     shapes = ['\U00002660', '\U00002665', '\U00002663', '\U00002666']
     ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
     Deck = []
@@ -24,9 +40,9 @@ class Player:
         for x in ranks:
             Deck.append(Cards(i,x))
 
-    def __init__(self, num):
-        self.num = num
-
-    def draw(self, num):
-        for i in range(num):
-            hand.append(Deck.pop(random.randrange(1,len(Deck)+1)))
+def main():
+    Playerlist = []
+    settingDeck()
+    numofPlayer = int(input('Number of Player: '))
+    for i in numofPlayer: # + name setting plz
+        name = input()
