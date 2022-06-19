@@ -43,12 +43,17 @@ def settingDeck():
         for x in ranks:
             Deck.append(Cards(i,x))
 
+def startingGame(listofplayer):
+    for i in listofplayer:
+        i.draw(5)
+        
+
 def main():
+    global Playerlist
     Playerlist = []
     settingDeck()
     numofnotPlayer = int(input('Number of computer: '))
     for i in range(numofnotPlayer): # + name setting plz
         Playerlist.append(Player('Player'+str(i)).name)
     NameofPlayer = input('your Name: ')
-    
-   
+    Playerlist.append(Player(NameofPlayer))
