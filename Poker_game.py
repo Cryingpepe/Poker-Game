@@ -32,6 +32,9 @@ class Player:
 
     def hand(self):
         return self.hand
+    
+    def remove(self, num):
+        for i in range(num) # 패 버리기 설정
 
 def settingDeck():
     global Deck
@@ -41,13 +44,13 @@ def settingDeck():
 
     for i in shapes:
         for x in ranks:
-            Deck.append(Cards(i,x))
-
+            Deck.append(Cards(i,x))    
+            
 def startingGame(listofplayer):
     for i in listofplayer:
-        i.draw(5)
+        i.draw(4)            # 드로우 4장        
+        i.remove(1)          # 버리기 1장
         
-
 def main():
     global Playerlist
     Playerlist = []
